@@ -21,14 +21,14 @@ export default defineComponent({
 
             await Promise.resolve();
 
-            const map = new Mapboxgl.Map({
+            new Mapboxgl.Map({
                 container: mapElement.value,  //'map', // container ID
                 style: 'mapbox://styles/mapbox/streets-v12', // style URL
                 center: userLocation.value, //[-74.5, 40], // starting position [lng, lat]
                 zoom: 15 // starting zoom
             });
 
-            const myLocationMrker = new Mapboxgl.Marker()
+            const myLocationMarker = new Mapboxgl.Marker()
         }
 
         
