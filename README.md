@@ -22,3 +22,9 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### Configuracion Mapbox
+
+esto es para nos acepete la dependecia
+```yarn add -D @types/mapbox-gl```

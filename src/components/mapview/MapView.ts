@@ -9,7 +9,7 @@ export default defineComponent({
 
         const mapElement = ref<HTMLDivElement>()
 
-        const { userLocation, isUserLocationReady } = usePlacesStore()
+        const { isUserLocationReady } = usePlacesStore()
 
         onMounted(()=> {
             console.log(mapElement.value);
