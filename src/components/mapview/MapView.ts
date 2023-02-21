@@ -15,8 +15,7 @@ export default defineComponent({
 
         const initMap = async () => {
 
-            //el elemento contendor del mapa debe 
-            // existir. 
+            //el elemento contendor del mapa debe existir. 
             if (!mapElement.value) throw new Error('Div element no exists')
             if (!userLocation.value) throw new Error('user location no exists')
 
@@ -28,6 +27,8 @@ export default defineComponent({
                 center: userLocation.value, //[-74.5, 40], // starting position [lng, lat]
                 zoom: 15 // starting zoom
             });
+
+            const myLocationMrker = new Mapboxgl.Marker()
         }
 
         
