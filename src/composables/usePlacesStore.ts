@@ -7,7 +7,7 @@ export const usePlacesStore = () => {
     const store = useStore<StateInterface>()
 
     onMounted(() => {
-        if (!store.getters['places/isUserLocationReady']) {
+        if (!store.getters['places/isUserlocationReady']) {
             store.dispatch('places/getInitialLocation')
         }
     })
@@ -19,7 +19,7 @@ export const usePlacesStore = () => {
         userLocation: computed(() => store.state.places.userLocations),
 
         //Getters
-        isUserLocationReady: computed<boolean>(()=> store.getters['places/isUserLocationReady'])
+        isUserlocationReady: computed<boolean>(()=> store.getters['places/isUserlocationReady'])
 
         //action
 

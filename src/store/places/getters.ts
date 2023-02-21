@@ -4,7 +4,7 @@ import { StateInterface } from '../index';
 
 
 const getters: GetterTree<PlacesState, StateInterface> = {
-    isUserLocationReady(  state  ) {
+    isUserlocationReady(  state  ) {
         return !!state.userLocations
     }
 }
