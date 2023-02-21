@@ -11,12 +11,16 @@ export default defineComponent({
         const mapElement = ref<HTMLDivElement>();
         const { userLocation, isUserlocationReady } = usePlacesStore();
 
-        const initMap = () => {
+        
+
+        const initMap = async () => {
 
             //el elemento contendor del mapa debe 
             // existir. 
             if (!mapElement.value) throw new Error('Div element no exists')
             if (!userLocation.value) throw new Error('user location no exists')
+
+            await Promise.resolve();
 
             const map = new Mapboxgl.Map({
                 container: mapElement.value,  //'map', // container ID
@@ -26,15 +30,14 @@ export default defineComponent({
             });
         }
 
+        
         onMounted(() => {
-            if (isUserlocationReady)
-                return initMap()
-
-            console.log('no tengo localizaciones aun');
-        })
+            if (isUserlocationReady.value)
+                return initMap();
+        });
 
         watch(isUserlocationReady, (newVal) => {
-            if (isUserlocationReady.value) initMap()
+            if (isUserlocationReady.value) initMap();
         })
 
         return {
