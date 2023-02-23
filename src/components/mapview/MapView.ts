@@ -1,6 +1,6 @@
 import { defineComponent, ref, onMounted, watch } from 'vue';
-import { usePlacesStore } from '../../composables/usePlacesStore';
 import Mapboxgl from 'mapbox-gl';
+import { useMapStore, usePlacesStore } from '@/composables';
 
 export default defineComponent({
 
@@ -10,6 +10,7 @@ export default defineComponent({
 
         const mapElement = ref<HTMLDivElement>();
         const { userLocation, isUserlocationReady } = usePlacesStore();
+        const { setMap } = useMapStore()
 
 
 
@@ -42,6 +43,9 @@ export default defineComponent({
                 .setLngLat(userLocation.value)
                 .setPopup(myLocationPopup)
                 .addTo(map)
+
+            //TODO: esteblacer el mapa en VUEX
+            setMap(map)
         }
 
 
