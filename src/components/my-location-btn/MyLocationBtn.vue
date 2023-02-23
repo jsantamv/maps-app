@@ -17,10 +17,9 @@ export default defineComponent({
 
         return {
 
-            onMyLocationClicked: () => {
-                console.log(userLocation.value);
+            onMyLocationClicked: () => {                
                 map.value?.flyTo({
-                    center: [userLocation.value],
+                    center: userLocation.value,
                     zoom: 14
                 })
             }
