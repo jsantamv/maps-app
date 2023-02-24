@@ -1,29 +1,29 @@
 <template>
-    <button class="btn btn-primary" @click="onMyLocationClicked">
-        Ir a mi ubicacion
+    <button v-if="isBtnReady" class="btn btn-primary" @click="onMyLocationClicked">
+        Ir a mi ubicación
     </button>
 </template>
 
-<script>
+<script lang="ts">
 import { useMapStore, usePlacesStore } from '@/composables';
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
 
 export default defineComponent({
     name: 'MyLocationBtn',
     setup() {
 
         const { userLocation, isUserlocationReady } = usePlacesStore();
-        const { map } = useMapStore();
+        const { map, isMapReady } = useMapStore();
 
         return {
+            isBtnReady: computed<boolean>(() => isUserlocationReady.value && isMapReady.value),
 
-            onMyLocationClicked: () => {                
+            onMyLocationClicked: () => {
                 map.value?.flyTo({
                     center: userLocation.value,
                     zoom: 14
                 })
             }
-
         }
     }
 })

@@ -6,15 +6,18 @@ import Mapboxgl from 'mapbox-gl';
 export const useMapStore = () => {
 
     const store = useStore<StateInterface>()
-    
+
 
     return {
-        map: computed(()=> store.state.map.map),
-        distance: computed(()=> store.state.map.distance),
-        duration: computed(()=> store.state.map.duration),
-         
+        map: computed(() => store.state.map.map),
+        distance: computed(() => store.state.map.distance),
+        duration: computed(() => store.state.map.duration),
+
+        //Getters
+        isMapReady: computed<boolean>(() => store.getters['map/isMapReady']),
+
         //MUTATIONS
-        setMap:(map: Mapboxgl.Map) => store.commit('map/setMap', map),
+        setMap: (map: Mapboxgl.Map) => store.commit('map/setMap', map),
 
         //ACTIONS
 
