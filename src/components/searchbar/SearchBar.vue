@@ -2,9 +2,9 @@
 
 <template>
     <div class="searchbar-container">
-        <input class="form-control" type="text" placeholder="Buscar Lugares..." v-model="dbouncedValue">
+        <input class="form-control" type="text" placeholder="Buscar Lugares..." v-model="searchTerm">
         
-        {{ dbouncedValue }}
+        {{ debouncedValue }}
 
         <SearchResults />
 
