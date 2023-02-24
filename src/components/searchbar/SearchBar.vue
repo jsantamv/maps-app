@@ -3,11 +3,7 @@
 <template>
     <div class="searchbar-container">
         <input class="form-control" type="text" placeholder="Buscar Lugares..." v-model="searchTerm">
-        
-        {{ debouncedValue }}
-
         <SearchResults />
-
     </div>
 </template>
 

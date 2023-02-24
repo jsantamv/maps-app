@@ -25,6 +25,8 @@ const actions: ActionTree<PlacesState, StateInterface> = {
     //TODO: Colocar el valor de retorno
     async searchPlacesByTerm({ commit, state }, query): Promise<Feature[]> {
 
+        commit('setIsLoadingPlaces')
+
         if (query.length === 0) {
             commit('setPlaces', [])
             return []
