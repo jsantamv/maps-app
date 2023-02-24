@@ -18,6 +18,14 @@ const actions: ActionTree<PlacesState, StateInterface> = {
                 throw new Error('No Gelocations :( ');
             }
         )
+    },
+
+    //TODO: Colocar el valor de retorno
+    async searchPlacesByTerm({commit,state }, query){
+        console.log('VUEX', query);
+        
+
+
     }
 }
 
