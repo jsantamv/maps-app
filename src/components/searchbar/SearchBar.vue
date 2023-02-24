@@ -2,8 +2,12 @@
 
 <template>
     <div class="searchbar-container">
-        <input class="form-control" type="text" placeholder="Buscar Lugares...">
-        <SearchResults/>
+        <input class="form-control" type="text" placeholder="Buscar Lugares..." v-model="dbouncedValue">
+        
+        {{ dbouncedValue }}
+
+        <SearchResults />
+
     </div>
 </template>
 
@@ -20,7 +24,4 @@
     overflow: hidden;
     padding: 5px;
 }
-
-
-
 </style>
