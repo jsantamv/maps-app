@@ -7,8 +7,8 @@ export default defineComponent({
 
     setup() {
 
-        const { isLoadingPlaces, places } = usePlacesStore()
-        const { map, setPlaceMarkers } = useMapStore()
+        const { isLoadingPlaces, places, userLocation } = usePlacesStore()
+        const { map, setPlaceMarkers, getRouteBetweenPoints } = useMapStore()
         const activePlace = ref('')
 
         watch(places, (newPlaces) => {
@@ -28,6 +28,18 @@ export default defineComponent({
                     zoom: 14,
                     center: [lng, lat]
                 })
+            },
+
+            getRouteDirections: (place: Feature) => {
+                if (!userLocation.value) return
+
+                const [lng, lat] = place.center
+                const [startLng, StartLat] = userLocation.value
+
+                const start: [number, number] = [startLng, StartLat]
+                const end: [number, number] = [lng, lat]
+
+                getRouteBetweenPoints(start, end)
             }
         }
     }
