@@ -34,11 +34,11 @@ li {
 }
 
 h5 {
-    font-size: 15px !important;
+    font-size: 10px !important;
     font-weight: bold;
 }
 
 p {
-    font-size: 13px !important;
+    font-size: 8px !important;
 }
 </style>

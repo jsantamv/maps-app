@@ -1,26 +1,29 @@
 <template>
-    <div class="trip-container column">
+    <div v-if="distance" class="trip-container column">
         <div class="col">
-            Distancia: <strong>1283</strong>
+            Distancia: <strong>{{ distance }} kms</strong>
         </div>
 
         <div class="col">
-            Duracion: <strong>1283</strong>
+            Duracion: <strong>{{ duration }} min</strong>
         </div>
     </div>
 </template>
 
 <script>
+import { useMapStore } from "@/composables";
 import { defineComponent } from "vue";
 
 export default defineComponent({
     name: 'TripDetails',
     setup() {
 
+        const { distance, duration } = useMapStore()
+
 
         return {
 
-
+            distance, duration
         }
     }
 })
@@ -31,12 +34,16 @@ export default defineComponent({
 .trip-container {
     background-color: white;
     border-radius: 10px;
-    bottom: 100px;
+    bottom: 35px;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
-    font-size: 30px;
+    font-size: 15px;
     left: 10px;
     padding: 10px;
     position: fixed;
     width: 350px;
+}
+
+strong {
+    color: #42b983
 }
 </style>>
